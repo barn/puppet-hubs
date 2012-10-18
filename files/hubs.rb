@@ -29,7 +29,14 @@ state["date"] = status["days"].first["date"]
 exit if previousstate == state
 
 body = Sanitize.clean status["days"].first["message"].split("\n").first.strip
-IrcKitten::msg "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
+
+if state["state"] == "good"
+  staytuss = "IT LIVES, Teh hubs is up! #{body}"
+else
+  staytuss "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
+end
+
+IrcKitten::msg staytuss
 
 File.open(statefile,'w'){ |f| JSON.dump(state, f) }
 
