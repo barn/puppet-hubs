@@ -29,7 +29,7 @@ exit if previousstate == state
 
 body = Sanitize.clean status["days"].first["message"].split("\n").first.strip
 
-if state["state"] == "good"
+if state["status"] == "good"
   staytuss = "IT LIVES, Teh hubs is up! #{body}"
 else
   staytuss "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
