@@ -2,7 +2,7 @@
 
 class hubs() {
 
-  $gems = [ 'json', 'httparty', 'irckitten', 'sanitize' ]
+  $gems = [ 'json', 'irckitten', 'sanitize' ]
 
   package { $gems: ensure => installed, provider => gem }
 
