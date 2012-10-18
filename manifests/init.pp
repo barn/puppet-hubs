@@ -14,7 +14,8 @@ class hubs() {
     source => 'puppet:///modules/hubs/hubs.rb',
   }
 
-  cron { '/usr/local/bin/hubs.rb':
+  cron { 'Cronthehubs':
+    command => '/usr/local/bin/hubs.rb',
     ensure  => present,
     user    => 'nobody',
     hour    => '*',
