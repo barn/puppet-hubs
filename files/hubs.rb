@@ -20,7 +20,6 @@ if File.exists?( statefile )
   previousstate = JSON.parse(IO.read(statefile))
 end
 
-state["lastupdated"] = status["last_updated"]
 state["status"] = status["status"]
 state["message"] = status["days"].first["message"].split("\n").first
 state["date"] = status["days"].first["date"]
