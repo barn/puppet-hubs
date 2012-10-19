@@ -29,10 +29,12 @@ exit if previousstate == state
 
 body = Sanitize.clean status["days"].first["message"].split("\n").first.strip
 
+staytuss = nil
+
 if state["status"] == "good"
   staytuss = "IT LIVES, Teh hubs is up! #{body}"
 else
-  staytuss "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
+  staytuss = "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
 end
 
 IrcKitten::msg staytuss
