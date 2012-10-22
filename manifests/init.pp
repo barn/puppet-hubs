@@ -15,7 +15,7 @@ class hubs() {
   }
 
   cron { 'Cronthehubs':
-    command => '/usr/local/bin/hubs.rb',
+    command => '/usr/local/bin/hubs.rb >/dev/null 2>&1',
     ensure  => present,
     user    => 'nobody',
     hour    => '*',
