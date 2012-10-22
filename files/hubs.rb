@@ -41,7 +41,7 @@ if state["status"] != 'minorproblem' && body != 'All systems operational'
   end
 end
 
-IrcKitten::msg staytuss
+IrcKitten::msg staytuss unless staytuss.nil?
 
 File.open(statefile,'w'){ |f| JSON.dump(state, f) }
 
