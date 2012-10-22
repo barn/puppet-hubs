@@ -31,10 +31,14 @@ body = Sanitize.clean status["days"].first["message"].split("\n").first.strip
 
 staytuss = nil
 
-if state["status"] == "good"
-  staytuss = "IT LIVES, Teh hubs is up! #{body}"
-else
-  staytuss = "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
+# There's a transition state that's kind of annoying where it's
+# minorproblem and all systems good. Let's hardcode around that.
+if state["status"] != 'minorproblem' && body != 'All systems operational'
+  if state["status"] == "good"
+    staytuss = "IT LIVES, Teh hubs is up! #{body}"
+  else
+    staytuss = "Teh hubs is dead! It's a #{status["status"]}™: #{body}"
+  end
 end
 
 IrcKitten::msg staytuss
